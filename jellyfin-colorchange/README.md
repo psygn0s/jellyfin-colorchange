@@ -109,7 +109,7 @@ Click **Save**.
 
 Copy this into Jellyfin → Dashboard → Branding → Custom CSS:
 ```Javascript
-@import url("https://cdn.jsdelivr.net/gh/psygn0s/jellyfin-colorchange@latest/color-change-theme.css");
+@import url("https://cdn.jsdelivr.net/gh/psygn0s/jellyfin-colorchange@latest/color-change.css");
 ```
 
 Paste it into Jellyfin's **Custom CSS** field.
