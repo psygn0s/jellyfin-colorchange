@@ -1,10 +1,19 @@
 # 🎬 Psygn0sis Color-Changing Jellyfin Theme
 
+The theme combines custom CSS with a dynamic JavaScript ribbon that automatically extracts color from each item's poster.
+
 A custom **desktop-focused Jellyfin theme** designed to give the detail page a cleaner, darker, more cinematic look while keeping the familiar Jellyfin interface.
 
-![Psygn0sis Jellyfin Theme](screenshots/main-detail-page.png)
+![Dynamic Color Ribbon](https://github.com/psygn0s/psygn0sis-jf-theme/blob/main/Screenshots/6.png)
 
-The theme combines custom CSS with a dynamic JavaScript ribbon that automatically extracts color from each item's poster.
+![Psygn0sis Jellyfin Theme](https://github.com/psygn0s/psygn0sis-jf-theme/blob/main/Screenshots/4.png)
+
+![Psygn0sis Jellyfin Theme](https://github.com/psygn0s/psygn0sis-jf-theme/blob/main/Screenshots/3.png)
+
+![Dynamic Color Ribbon](https://github.com/psygn0s/psygn0sis-jf-theme/blob/main/Screenshots/1.png)
+
+![Dynamic Color Ribbon](https://github.com/psygn0s/psygn0sis-jf-theme/blob/main/Screenshots/5.png)
+
 
 ---
 
@@ -14,7 +23,7 @@ The theme combines custom CSS with a dynamic JavaScript ribbon that automaticall
 
 The detail-page ribbon automatically picks up a color from the item's primary poster.
 
-![Dynamic Color Ribbon](screenshots/dynamic-ribbon.png)
+
 
 The JavaScript:
 
@@ -32,17 +41,13 @@ The JavaScript:
 
 The backdrop remains fixed while the page content scrolls naturally over it.
 
-![Cinematic Backdrop](screenshots/cinematic-backdrop.png)
-
-This keeps the artwork visible while preventing the background from moving awkwardly with the detail-page content.
+This keeps the artwork visible while preventing the background from moving.
 
 ---
 
 ## 🌑 Scrolling Dark Gradient
 
 A gradual dark gradient is applied toward the lower portion of the page.
-
-![Scrolling Dark Gradient](screenshots/dark-gradient.png)
 
 This improves readability around the metadata and controls while keeping the upper portion of the artwork visible.
 
@@ -52,23 +57,17 @@ This improves readability around the metadata and controls while keeping the upp
 
 The Jellyfin detail-page logo is repositioned and scaled for a cleaner desktop presentation.
 
-![Custom Detail Logo](screenshots/detail-logo.png)
-
 ---
 
 ## 🎞️ Card Hover Effects
 
 Cards smoothly enlarge when hovered, giving the browsing interface a more interactive feel.
 
-![Card Hover Effect](screenshots/card-hover.png)
-
 ---
 
 ## 📋 Custom Metadata Layout
 
 The detail page is reorganized to prioritize the information that matters most.
-
-![Custom Metadata Layout](screenshots/metadata-layout.png)
 
 The layout prioritizes:
 
@@ -96,30 +95,6 @@ The result is a cleaner detail page with less visual clutter.
 ## 👥 Improved Cast & Crew
 
 Additional spacing is added around cast and crew sections to give the lower portion of the detail page more breathing room.
-
-![Cast & Crew](screenshots/cast-crew.png)
-
----
-
-# 📸 Screenshots
-
-Here are some examples of the theme in action.
-
-## 🎬 Movie Detail Page
-
-![Movie Detail Page](screenshots/movie-detail.png)
-
-## 📺 TV Show Detail Page
-
-![TV Show Detail Page](screenshots/tv-show-detail.png)
-
-## 🎨 Poster-Based Ribbon
-
-![Poster-Based Ribbon](screenshots/dynamic-ribbon.png)
-
-## 🌑 Cinematic Backdrop
-
-![Cinematic Backdrop](screenshots/cinematic-backdrop.png)
 
 ---
 
