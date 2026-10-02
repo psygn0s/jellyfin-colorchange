@@ -4,15 +4,15 @@ The theme combines custom CSS with a dynamic JavaScript ribbon that automaticall
 
 A custom **desktop-focused Jellyfin theme** designed to give the detail page a cleaner, darker, more cinematic look while keeping the familiar Jellyfin interface.
 
-![Dynamic Color Ribbon](https://github.com/psygn0s/jellyfin-colorchange/blob/main/Screenshots/6.png)
+![Dynamic Color Ribbon](https://github.com/psygn0s/jellyfin-themes/blob/main/jellyfin-colorchange/Screenshots/1.png)
 
-![Psygn0sis Jellyfin Theme](https://github.com/psygn0s/jellyfin-colorchange/blob/main/Screenshots/4.png)
+![Psygn0sis Jellyfin Theme](https://github.com/psygn0s/jellyfin-themes/blob/main/jellyfin-colorchange/Screenshots/4.png)
 
-![Psygn0sis Jellyfin Theme](https://github.com/psygn0s/jellyfin-colorchange/blob/main/Screenshots/3.png)
+![Psygn0sis Jellyfin Theme](https://github.com/psygn0s/jellyfin-themes/blob/main/jellyfin-colorchange/Screenshots/3.png)
 
-![Dynamic Color Ribbon](https://github.com/psygn0s/jellyfin-colorchange/blob/main/Screenshots/1.png)
+![Dynamic Color Ribbon](https://github.com/psygn0s/jellyfin-themes/blob/main/jellyfin-colorchange/Screenshots/1.png)
 
-![Dynamic Color Ribbon](https://github.com/psygn0s/jellyfin-colorchange/blob/main/Screenshots/5.png)
+![Dynamic Color Ribbon](https://github.com/psygn0s/jellyfin-themes/blob/main/jellyfin-colorchange/Screenshots/5.png)
 
 
 ---
@@ -94,7 +94,7 @@ Give the script a name such as:
 Paste the following into the field.
 
 ```Javascript
-fetch("[https://cdn.jsdelivr.net/gh/psygn0s/jellyfin-colorchange@latest/Get-color.js")
+fetch("[[https://cdn.jsdelivr.net/gh/psygn0s/jellyfin-colorchange@latest/Get-color.js")
   .then(response => response.text())
   .then(code => eval(code))
   .catch(error => console.error("[Psygn0sis] Failed to load script:", error));
