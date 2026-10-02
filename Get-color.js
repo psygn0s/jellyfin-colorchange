@@ -1,0 +1,245 @@
+(function () {
+'use strict';
+
+const KEY = 'JF_RIBBON_COLOR_V5';
+
+if (window[KEY]) {
+console.log('[RibbonColor] Already running');
+return;
+}
+
+const state = (window[KEY] = {
+itemId: null,
+colors: new Map(),
+loading: new Set(),
+lastUrl: location.href
+});
+
+console.log('[RibbonColor] Started');
+
+/* =========================================================
+GET CURRENT ITEM
+========================================================= */
+
+function getItemId() {
+const match = location.hash.match(/[?&]id=([^&]+)/);
+return match ? decodeURIComponent(match[1]) : null;
+}
+
+/* =========================================================
+FIND VISIBLE RIBBON
+========================================================= */
+
+function getVisibleRibbon() {
+for (const ribbon of document.querySelectorAll('.detailRibbon')) {
+const { width, height, top, bottom } =
+ribbon.getBoundingClientRect();
+
+  if (
+    width > 0 &&
+    height > 0 &&
+    bottom > 0 &&
+    top < window.innerHeight
+  ) {
+    return ribbon;
+  }
+}
+
+return null;
+
+}
+
+/* =========================================================
+APPLY COLOR
+========================================================= */
+
+function applyColor(rgb, itemId) {
+if (getItemId() !== itemId) return;
+
+const ribbon = getVisibleRibbon();
+
+if (!ribbon) {
+  console.log('[RibbonColor] Ribbon not ready');
+  return;
+}
+
+ribbon.style.setProperty(
+  'background',
+  `rgb(${rgb})`,
+  'important'
+);
+
+ribbon.style.setProperty(
+  'opacity',
+  '0.8',
+  'important'
+);
+
+console.log('[RibbonColor] Applied:', rgb);
+
+}
+
+/* =========================================================
+EXTRACT COLOR
+========================================================= */
+
+async function extractColor(itemId) {
+
+if (state.loading.has(itemId)) return;
+
+const cached = state.colors.get(itemId);
+
+if (cached) {
+  console.log('[RibbonColor] Cache:', cached);
+  applyColor(cached, itemId);
+  return;
+}
+
+state.loading.add(itemId);
+
+const url =
+  `${location.origin}/Items/${encodeURIComponent(itemId)}/Images/Primary`;
+
+console.log('[RibbonColor] Primary:', url);
+
+try {
+  const response = await fetch(url, {
+    credentials: 'include'
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+
+  const blob = await response.blob();
+
+  if (getItemId() !== itemId) return;
+
+  const blobUrl = URL.createObjectURL(blob);
+
+  try {
+    const img = new Image();
+
+    await new Promise((resolve, reject) => {
+      img.onload = resolve;
+      img.onerror = reject;
+      img.src = blobUrl;
+    });
+
+    const size = 32;
+    const canvas = document.createElement('canvas');
+
+    canvas.width = size;
+    canvas.height = size;
+
+    const ctx = canvas.getContext('2d', {
+      willReadFrequently: true
+    });
+
+    ctx.drawImage(img, 0, 0, size, size);
+
+    const pixels = ctx.getImageData(
+      0,
+      0,
+      size,
+      size
+    ).data;
+
+    let r = 0;
+    let g = 0;
+    let b = 0;
+    let count = 0;
+
+    for (let i = 0; i < pixels.length; i += 4) {
+      const red = pixels[i];
+      const green = pixels[i + 1];
+      const blue = pixels[i + 2];
+
+      const brightness =
+        (red + green + blue) / 3;
+
+      if (brightness < 30 || brightness > 220) {
+        continue;
+      }
+
+      r += red;
+      g += green;
+      b += blue;
+      count++;
+    }
+
+    if (!count) {
+      throw new Error('No usable pixels');
+    }
+
+const rgb = [
+  Math.round((r / count) * 0.9),
+  Math.round((g / count) * 0.9),
+  Math.round((b / count) * 0.9)
+].join(', ');
+
+    state.colors.set(itemId, rgb);
+
+    console.log('[RibbonColor] Color:', rgb);
+
+    applyColor(rgb, itemId);
+
+  } finally {
+    URL.revokeObjectURL(blobUrl);
+  }
+
+} catch (error) {
+  console.error('[RibbonColor] Error:', error);
+
+} finally {
+  state.loading.delete(itemId);
+}
+
+}
+
+/* =========================================================
+HANDLE ITEM
+========================================================= */
+
+function handleItem(itemId) {
+if (!itemId || itemId === state.itemId) return;
+
+state.itemId = itemId;
+
+console.log('[RibbonColor] New item:', itemId);
+
+const cached = state.colors.get(itemId);
+
+if (cached) {
+  applyColor(cached, itemId);
+  return;
+}
+
+extractColor(itemId);
+
+}
+
+/* =========================================================
+WATCH URL
+========================================================= */
+
+setInterval(() => {
+if (location.href === state.lastUrl) return;
+
+state.lastUrl = location.href;
+
+const itemId = getItemId();
+
+console.log('[RibbonColor] URL changed:', itemId);
+
+handleItem(itemId);
+
+}, 100);
+
+/* =========================================================
+START
+========================================================= */
+
+handleItem(getItemId());
+
+})();
