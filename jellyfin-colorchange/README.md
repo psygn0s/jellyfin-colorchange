@@ -94,10 +94,10 @@ Give the script a name such as:
 Paste the following into the field.
 
 ```Javascript
-fetch("[[https://cdn.jsdelivr.net/gh/psygn0s/jellyfin-colorchange@latest/Get-color.js")
-  .then(response => response.text())
-  .then(code => eval(code))
-  .catch(error => console.error("[Psygn0sis] Failed to load script:", error));
+const script = document.createElement('script');
+script.src = 'https://cdn.jsdelivr.net/gh/psygn0s/jellyfin-themes@latest/jellyfin-colorchange/Get-color.js';
+script.async = true;
+document.head.appendChild(script);
 ```
 Make sure the script is **Enabled**.
 
@@ -109,7 +109,7 @@ Click **Save**.
 
 Copy this into Jellyfin → Dashboard → Branding → Custom CSS:
 ```Javascript
-@import url("https://cdn.jsdelivr.net/gh/psygn0s/jellyfin-colorchange@latest/color-change.css");
+@import url("https://cdn.jsdelivr.net/gh/psygn0s/jellyfin-themes@latest/jellyfin-colorchange/color-change.css");
 ```
 
 Paste it into Jellyfin's **Custom CSS** field.
