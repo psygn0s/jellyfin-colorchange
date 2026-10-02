@@ -107,7 +107,7 @@ Click **Save**.
 
 # 🎨 Step 3 — Install the CSS Theme
 
-Copy this into Jellyfin → Dashboard → General → Custom CSS:
+Copy this into Jellyfin → Dashboard → Branding → Custom CSS:
 ```Javascript
 @import url("https://cdn.jsdelivr.net/gh/psygn0s/psygn0sis-jf-theme@main/color-change-theme.css");
 ```
