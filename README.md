@@ -9,7 +9,7 @@ It adds a **fixed cinematic backdrop, scrolling dark gradient, poster-based colo
 
 ---
 
-## ✨ Features
+✨ Features
 
 🎨 **Dynamic Color Ribbon**
 Automatically matches the detail-page ribbon to the item's poster using the companion JavaScript userscript.
@@ -43,12 +43,9 @@ Removes unnecessary sections such as:
 * Track selections
 * External links
 
-while preserving the rest of the Jellyfin interface.
-
 👥 **Improved Cast & Crew Spacing**
 Adds additional breathing room around cast and crew sections.
 
-The project also includes a companion JavaScript userscript that extracts a color from the item's primary poster and applies it to the Jellyfin detail ribbon.
 
 The script:
 
@@ -74,13 +71,12 @@ It uses Jellyfin's existing DOM structure and CSS classes, so appearance may cha
 
 # 🚀 Installation
 
-# 🎨 Install Dynamic Ribbon Color Java Script.
-
-### 🔗 Companion Script
+🎨 Install Dynamic Ribbon Color Java Script.
 
 **`Get-color.js`**
 
-I🔌 Install Jellyfin JavaScript Injector
+🔌 Install Jellyfin JavaScript Injector
+
 Step 1 — Open the Plugin Catalog
 
 In Jellyfin, go to:
@@ -101,7 +97,8 @@ Then add the repository URL appropriate for your Jellyfin version.
 
 Jellyfin 10.11
 https://raw.githubusercontent.com/n00bcodr/jellyfin-plugins/main/10.11/manifest.json
-Jellyfin 12
+
+Jellyfin 12+
 https://raw.githubusercontent.com/n00bcodr/jellyfin-plugins/main/12/manifest.json
 
 Click Save.
@@ -123,7 +120,7 @@ Click "Add Script" and paste the contents of "Get-color.js.
 Click "Save".
 ---
 
-### 🔗 Install custom CSS.
+🔗 Install custom CSS.
 
 ## 1. Open Jellyfin
 
@@ -135,9 +132,8 @@ Go to:
 
 Depending on your Jellyfin version, the location of the Custom CSS field may vary.
 
----
 
-## 2. Copy the CSS
+2. Copy the CSS
 
 Copy the contents of the project's CSS file:
 
