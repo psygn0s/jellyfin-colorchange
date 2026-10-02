@@ -1,6 +1,6 @@
 # 🎬 Psygn0sis Color-Changing Jellyfin Theme
 
-The theme combines custom CSS with a dynamic JavaScript ribbon that automatically extracts color from each item's poster.
+The theme combines custom CSS with a dynamic JavaScript ribbon that automatically extracts color from each item's poster and applies it to the ribbon.
 
 A custom **desktop-focused Jellyfin theme** designed to give the detail page a cleaner, darker, more cinematic look while keeping the familiar Jellyfin interface.
 
@@ -21,97 +21,25 @@ A custom **desktop-focused Jellyfin theme** designed to give the detail page a c
 
 ## 🎨 Dynamic Color Ribbon
 
-The detail-page ribbon automatically picks up a color from the item's primary poster.
-
-
-
-The JavaScript:
-
-* Detects the current Jellyfin item
-* Retrieves the primary poster
-* Samples the image
-* Calculates a usable average color
-* Caches colors per item
-* Detects navigation between items
-* Applies the color automatically
-
----
-
 ## 🌄 Cinematic Backdrop
-
-The backdrop remains fixed while the page content scrolls naturally over it.
-
-This keeps the artwork visible while preventing the background from moving.
-
----
 
 ## 🌑 Scrolling Dark Gradient
 
-A gradual dark gradient is applied toward the lower portion of the page.
-
-This improves readability around the metadata and controls while keeping the upper portion of the artwork visible.
-
----
-
 ## 🖼️ Custom Detail Logo
-
-The Jellyfin detail-page logo is repositioned and scaled for a cleaner desktop presentation.
-
----
 
 ## 🎞️ Card Hover Effects
 
-Cards smoothly enlarge when hovered, giving the browsing interface a more interactive feel.
-
----
-
 ## 📋 Custom Metadata Layout
-
-The detail page is reorganized to prioritize the information that matters most.
-
-The layout prioritizes:
-
-* Tagline
-* Birth/death information
-* Overview
-* Item details
-* Tags
-* Cast & crew
-
----
 
 ## 🧹 Cleaner Detail Page
 
-Unnecessary sections are removed from the customized layout:
-
-* Genres
-* Track selections
-* External links
-
-The result is a cleaner detail page with less visual clutter.
-
----
-
 ## 👥 Improved Cast & Crew
-
-Additional spacing is added around cast and crew sections to give the lower portion of the detail page more breathing room.
 
 ---
 
 # 🚀 Installation
 
-This theme uses **two components**:
-
-| File                     | Purpose                     |
-| ------------------------ | --------------------------- |
-| `color-change-theme.css` | Main Jellyfin theme         |
-| `Get-color.js`           | Dynamic poster-color ribbon |
-
-The JavaScript is installed through the **Jellyfin JavaScript Injector** plugin.
-
----
-
-# 🔌 Step 1 — Install JavaScript Injector
+# 🔌 Step 1 — Install JavaScript Injector Plugin.
 
 In Jellyfin, open:
 
@@ -121,11 +49,7 @@ Click the **⚙️ Repository** button.
 
 Select **Add Repository**.
 
-Enter:
-
-**Name**
-
-`JavaScript Injector`
+Name: `JavaScript Injector`
 
 ### Jellyfin 10.11
 
@@ -151,7 +75,9 @@ For more information, visit the official **[Jellyfin JavaScript Injector GitHub 
 
 ---
 
-# 🧩 Step 2 — Install `Get-color.js`
+# 🧩 Step 2 — Install theme.
+
+🎨 Install the Dynamic Ribbon JavaScript
 
 After restarting Jellyfin, open:
 
@@ -163,10 +89,16 @@ Click:
 
 Give the script a name such as:
 
-`Psygn0sis Dynamic Ribbon Color`
+`Psygn0sis Theme`
 
-Open **`Get-color.js`** from this project and copy the entire contents into the JavaScript Injector editor.
+Paste the following into the field.
 
+```Javascript
+fetch("https://cdn.jsdelivr.net/gh/psygn0s/psygn0sis-jf-theme@v1.0.0/Get-color.js")
+  .then(response => response.text())
+  .then(code => eval(code))
+  .catch(error => console.error("[Psygn0sis] Failed to load script:", error));
+```
 Make sure the script is **Enabled**.
 
 Click **Save**.
@@ -175,13 +107,10 @@ Click **Save**.
 
 # 🎨 Step 3 — Install the CSS Theme
 
-Open:
-
-**Dashboard → General → Custom CSS**
-
-Copy the contents of:
-
-**`color-change-theme.css`**
+Copy this into Jellyfin → Dashboard → General → Custom CSS:
+```Javascript
+@import url("https://cdn.jsdelivr.net/gh/psygn0s/psygn0sis-jf-theme@main/color-change-theme.css");
+```
 
 Paste it into Jellyfin's **Custom CSS** field.
 
@@ -266,51 +195,9 @@ For a more transparent ribbon:
 opacity: 0.6;
 ```
 
----
-
-# 📁 Project Structure
-
-```text
-/
-├── color-change-theme.css
-├── Get-color.js
-├── README.md
-└── screenshots/
-    ├── main-detail-page.png
-    ├── movie-detail.png
-    ├── tv-show-detail.png
-    ├── dynamic-ribbon.png
-    ├── cinematic-backdrop.png
-    ├── dark-gradient.png
-    ├── detail-logo.png
-    ├── card-hover.png
-    ├── metadata-layout.png
-    └── cast-crew.png
-```
-
----
-
-# 🖥️ Compatibility
-
-Designed primarily for:
-
-* 🖥️ Jellyfin Desktop Web
-* 🎬 Jellyfin Detail Pages
-* 🌐 Modern Chromium-based browsers
-* 🦊 Firefox
-* 🔌 Jellyfin JavaScript Injector
-
 The theme relies on Jellyfin's existing DOM structure and CSS classes. Major Jellyfin frontend updates may therefore require changes to the CSS selectors.
 
 > ⚠️ **Note:** Custom CSS and JavaScript are generally version-dependent. If Jellyfin changes its frontend structure, some features may need to be updated.
-
----
-
-# 🔗 Useful Links
-
-* 🎬 **[Jellyfin](https://jellyfin.org/)**
-* 💻 **[Jellyfin GitHub](https://github.com/jellyfin/jellyfin)**
-* 🔌 **[Jellyfin JavaScript Injector](https://github.com/n00bcodr/Jellyfin-JavaScript-Injector)**
 
 ---
 
@@ -325,6 +212,3 @@ Built using:
 
 ---
 
-## 🎬 Make Jellyfin Yours
-
-**Customize it. Tune it. Make every title feel like its own screen.**
