@@ -219,7 +219,13 @@ display: none !important;
 
 /* Extras sections */
 .specialsCollapsible {
-order: 5 !important;
+order: 7 !important;
+margin-bottom: 0;
+}
+
+/* Extras sections */
+.castCollapsible {
+order: 8 !important;
 margin-bottom: 0;
 }
 
