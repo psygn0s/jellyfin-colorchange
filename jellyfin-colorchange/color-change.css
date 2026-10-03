@@ -217,6 +217,12 @@ margin-bottom: 0;
 display: none !important;
 }
 
+/* Extras sections */
+.specialsCollapsible {
+order: 7 !important;
+margin-bottom: 0;
+}
+
 /* Birth / death information */
 #itemBirthday,
 #itemDeathDate,
