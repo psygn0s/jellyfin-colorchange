@@ -219,7 +219,8 @@ DETAIL SECTION ORDER (primary metadata)
 }
 
 /* External links */
-.itemExternalLinks {
+.itemExternalLinks,
+ #scenesCollapsible, {
   order: 7 !important;
   margin-top: 0;
   margin-bottom: 0;
@@ -249,7 +250,6 @@ SECONDARY SECTIONS – Specials ABOVE Cast
 
 /* Other extras right after specials */
 #musicVideosCollapsible,
-#scenesCollapsible,
 #additionalPartsCollapsible {
   order: 15 !important;
   margin-bottom: 0;
