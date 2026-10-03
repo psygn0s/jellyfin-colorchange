@@ -211,7 +211,7 @@ margin-top: 0;
 
 /* External links */
 .itemExternalLinks {
-order: 6 !important;
+order: 7 !important;
 margin-top: 0;
 margin-bottom: 0;
 display: none !important;
@@ -219,13 +219,13 @@ display: none !important;
 
 /* Extras sections */
 .specialsCollapsible {
-order: 7 !important;
+order: 8 !important;
 margin-bottom: 0;
 }
 
 /* Extras sections */
 .castCollapsible {
-order: 8 !important;
+order: 9 !important;
 margin-bottom: 0;
 }
 
