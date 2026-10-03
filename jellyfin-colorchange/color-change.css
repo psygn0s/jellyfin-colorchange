@@ -1,40 +1,4 @@
-Skip to content
-psygn0s
-jellyfin-themes
-Repository navigation
-Code
-Issues
-Pull requests
-Agents
-Discussions
-Actions
-Projects
-Wiki
-Security and quality
-Insights
-Settings
-Files
-Go to file
-t
-T
-jellyfin-colorchange
-Screenshots
-Get-color.js
-README.md
-color-change.css
-jellyfin-themes/jellyfin-colorchange
-/color-change.css
-psygn0s
-psygn0s
-Update CSS to hide external links and scenes
-c29f2ed
- · 
-1 minute ago
 
-Code
-
-Blame
-292 lines (253 loc) · 6.18 KB
 /* =========================================================
 HEADER
 ========================================================= */
@@ -253,6 +217,7 @@ DETAIL SECTION ORDER (primary metadata)
 #listChildrenCollapsible {
   order: 6 !important;
   margin-top: 0;
+   margin-bottom: 2px;
 }
 
 /* Next Up */
