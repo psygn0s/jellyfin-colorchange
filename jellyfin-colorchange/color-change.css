@@ -1,3 +1,40 @@
+Skip to content
+psygn0s
+jellyfin-themes
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Discussions
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Files
+Go to file
+t
+T
+jellyfin-colorchange
+Screenshots
+Get-color.js
+README.md
+color-change.css
+jellyfin-themes/jellyfin-colorchange
+/color-change.css
+psygn0s
+psygn0s
+Update CSS to hide external links and scenes
+c29f2ed
+ · 
+1 minute ago
+
+Code
+
+Blame
+292 lines (253 loc) · 6.18 KB
 /* =========================================================
 HEADER
 ========================================================= */
@@ -156,7 +193,7 @@ MAIN CONTENT
   font-size: 1.5em !important;
   font-weight: 600 !important;
   line-height: 1.3 !important;
-  margin-top: 2em !important;
+  margin-top: 0em !important;
   margin-bottom: 0 !important;
 }
 
@@ -173,19 +210,13 @@ DETAIL SECTION ORDER (primary metadata)
   display: contents;
 }
 
-/* Hide these */
-.itemGenres,
-.trackSelections {
-  display: none !important;
-}
-
 /* Everything else defaults to the end */
 .detailSectionContent > * {
   order: 10;
 }
 
 /* Tagline */
-.tagline {
+  .tagline {
   order: 1 !important;
 }
 
@@ -200,7 +231,7 @@ DETAIL SECTION ORDER (primary metadata)
 /* Overview */
 .overview,
 .overview-controls {
-  order: 3 !important;
+  order: 1 !important;
   margin-top: -2px;
   margin-bottom: 0;
   font-size: 1.18rem;
@@ -218,6 +249,25 @@ DETAIL SECTION ORDER (primary metadata)
   margin-top: 0;
 }
 
+/* Seasons */
+#listChildrenCollapsible {
+  order: 6 !important;
+  margin-top: 0;
+}
+
+/* Next Up */
+.nextUpSection {
+  order: 6 !important;
+  margin-top: 0;
+  display: none !important;
+}
+
+/* Hide these */
+.itemGenres,
+.trackSelections {
+  display: none !important;
+}
+
 /* External links */
 .itemExternalLinks {
   order: 7 !important;
@@ -225,7 +275,8 @@ DETAIL SECTION ORDER (primary metadata)
   margin-bottom: 0;
   display: none !important;
 }
-#scenesCollapsible {
+#scenesCollapsible,
+#collectionsCollapsible  {
   display: none !important;
 }
 
@@ -290,3 +341,4 @@ CAST & CREW spacing
   padding-top: 2em !important;
   padding-bottom: 2em !important;
 }
+ 
