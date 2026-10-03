@@ -219,11 +219,13 @@ DETAIL SECTION ORDER (primary metadata)
 }
 
 /* External links */
-.itemExternalLinks,
- #scenesCollapsible, {
+.itemExternalLinks {
   order: 7 !important;
   margin-top: 0;
   margin-bottom: 0;
+  display: none !important;
+}
+#scenesCollapsible {
   display: none !important;
 }
 
